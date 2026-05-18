@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     android:padding="32dp"
     android:background="@color/white">
 
-    <!-- Avatar con inicial del usuario -->
+    <!-- Avatar con inicial -->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardAvatar"
         android:layout_width="80dp"
         android:layout_height="80dp"
         app:cardBackgroundColor="#1D4ED8"
         app:cardCornerRadius="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.25"
-        app:layout_constraintBottom_toBottomOf="parent">
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <TextView
             android:layout_width="match_parent"
@@ -30,18 +26,14 @@
             android:gravity="center"/>
     </com.google.android.material.card.MaterialCardView>
 
-    <!-- Nombre de usuario -->
     <TextView
-        android:id="@+id/tvUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="¡Bienvenido!"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/cardAvatar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp"/>
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"/>
 
     <!-- Campo usuario -->
     <com.google.android.material.textfield.TextInputLayout
@@ -50,8 +42,8 @@
         android:layout_height="wrap_content"
         android:hint="Usuarios"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:layout_constraintTop_toBottomOf="@id/tvUsername"
-        android:layout_marginTop="24dp">
+        android:layout_marginBottom="16dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etUsuario"
@@ -68,8 +60,8 @@
         android:hint="Contraseña"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:passwordToggleEnabled="true"
-        app:layout_constraintTop_toBottomOf="@id/tilUsuario"
-        android:layout_marginTop="16dp">
+        android:layout_marginBottom="24dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassword"
@@ -78,13 +70,11 @@
             android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Botón iniciar sesión -->
+    <!-- Botón -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Iniciar sesión"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@id/tilPassword"/>
+        android:text="Iniciar sesión"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
