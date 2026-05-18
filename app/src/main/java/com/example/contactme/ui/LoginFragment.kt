@@ -16,7 +16,7 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding!!
 
     // Usuario y contraseña hardcodeados (sin BBDD de usuarios)
-    private val USER = "maria"
+    private val USER = "admin"
     private val PASS = "1234"
 
     override fun onCreateView(

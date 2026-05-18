@@ -6,14 +6,11 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/loginFragment">
 
-    <!-- Pantalla de login, destino inicial -->
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.contactme.ui.LoginFragment"
         android:label="ContactMe"
         tools:layout="@layout/fragment_login">
-
-        <!-- Acción: ir al listado -->
         <action
             android:id="@+id/action_loginFragment_to_listFragment"
             app:destination="@id/listFragment"
@@ -21,10 +18,46 @@
             app:popUpToInclusive="true"/>
     </fragment>
 
-    <!-- Placeholder para el siguiente commit -->
     <fragment
         android:id="@+id/listFragment"
         android:name="com.example.contactme.ui.ListFragment"
-        android:label="Listado"/>
+        android:label="Listado"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/listFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_listFragment_to_detailFragment"
+            app:destination="@id/detailFragment"/>
+        <action
+            android:id="@+id/action_listFragment_to_editFragment"
+            app:destination="@id/editFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.contactme.ui.DetailFragment"
+        android:label="Detalles"
+        tools:layout="@layout/fragment_detail">
+        <!-- Argumento: id del contacto a mostrar -->
+        <argument
+            android:name="contactId"
+            app:argType="integer"/>
+        <action
+            android:id="@+id/action_detailFragment_to_editFragment"
+            app:destination="@id/editFragment"/>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.example.contactme.ui.EditFragment"
+        android:label="Añadir/Editar">
+        <argument
+            android:name="contactId"
+            app:argType="integer"/>
+    </fragment>
 
 </navigation>
