@@ -20,7 +20,7 @@ class ContactAdapter(
             // Inicial del nombre en el círculo
             binding.tvInitial.text = contact.name.first().uppercase()
             binding.tvName.text = contact.name
-            binding.tvDetail.text = contact.detail
+            binding.tvEmail.text = contact.email
 
             binding.root.setOnClickListener { onClick(contact) }
         }

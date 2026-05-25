@@ -13,6 +13,7 @@ import com.example.contactme.R
 import com.example.contactme.data.Contact
 import com.example.contactme.databinding.FragmentDetailBinding
 import com.example.contactme.viewmodel.ContactViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class DetailFragment : Fragment() {
 
@@ -80,6 +81,9 @@ class DetailFragment : Fragment() {
             .setPositiveButton("Borrar") { _, _ ->
                 currentContact?.let {
                     viewModel.delete(it)
+                    com.google.android.material.snackbar.Snackbar
+                        .make(binding.root, "Contacto eliminado", Snackbar.LENGTH_SHORT)
+                        .show()
                     findNavController().popBackStack()
                 }
             }

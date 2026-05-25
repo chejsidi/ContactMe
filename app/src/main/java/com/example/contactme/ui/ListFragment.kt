@@ -72,10 +72,6 @@ class ListFragment : Fragment() {
                         findNavController().navigate(action)
                         true
                     }
-                    R.id.action_search -> {
-                        showSearchDialog()
-                        true
-                    }
                     R.id.action_logout -> {
                         findNavController().navigate(R.id.action_listFragment_to_loginFragment)
                         true
@@ -88,6 +84,13 @@ class ListFragment : Fragment() {
 
     private fun showSearchDialog() {
         val searchView = SearchView(requireContext())
+
+        val dialog = androidx.appcompat.app.AlertDialog.Builder(requireContext())
+            .setTitle("Buscar contacto")
+            .setView(searchView)
+            .setNegativeButton("Cerrar", null)
+            .create()
+
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean = false
             override fun onQueryTextChange(query: String?): Boolean {
@@ -102,11 +105,12 @@ class ListFragment : Fragment() {
             }
         })
 
-        androidx.appcompat.app.AlertDialog.Builder(requireContext())
-            .setTitle("Buscar contacto")
-            .setView(searchView)
-            .setNegativeButton("Cerrar", null)
-            .show()
+        // Al cerrar el diálogo, restaura la lista completa siempre
+        dialog.setOnDismissListener {
+            observeContacts()
+        }
+
+        dialog.show()
     }
 
     override fun onDestroyView() {

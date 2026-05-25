@@ -15,7 +15,11 @@
             android:id="@+id/action_loginFragment_to_listFragment"
             app:destination="@id/listFragment"
             app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
@@ -27,13 +31,25 @@
             android:id="@+id/action_listFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:popUpTo="@id/listFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_listFragment_to_detailFragment"
-            app:destination="@id/detailFragment"/>
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_listFragment_to_editFragment"
-            app:destination="@id/editFragment"/>
+            app:destination="@id/editFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
@@ -41,15 +57,17 @@
         android:name="com.example.contactme.ui.DetailFragment"
         android:label="Detalles"
         tools:layout="@layout/fragment_detail">
-        <!-- Argumento: id del contacto a mostrar -->
         <argument
             android:name="contactId"
             app:argType="integer"/>
         <action
             android:id="@+id/action_detailFragment_to_editFragment"
-            app:destination="@id/editFragment"/>
+            app:destination="@id/editFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
-
 
     <fragment
         android:id="@+id/editFragment"
