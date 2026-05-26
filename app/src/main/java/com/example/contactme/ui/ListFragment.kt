@@ -2,7 +2,6 @@ package com.example.contactme.ui
 
 import android.os.Bundle
 import android.view.*
-import android.widget.SearchView
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -17,7 +16,6 @@ class ListFragment : Fragment() {
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
 
-    // ViewModel compartido con otros fragments
     private val viewModel: ContactViewModel by viewModels()
     private lateinit var adapter: ContactAdapter
 
@@ -80,37 +78,6 @@ class ListFragment : Fragment() {
                 }
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
-    }
-
-    private fun showSearchDialog() {
-        val searchView = SearchView(requireContext())
-
-        val dialog = androidx.appcompat.app.AlertDialog.Builder(requireContext())
-            .setTitle("Buscar contacto")
-            .setView(searchView)
-            .setNegativeButton("Cerrar", null)
-            .create()
-
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean = false
-            override fun onQueryTextChange(query: String?): Boolean {
-                if (query.isNullOrEmpty()) {
-                    observeContacts()
-                } else {
-                    viewModel.search(query).observe(viewLifecycleOwner) { contacts ->
-                        adapter.submitList(contacts)
-                    }
-                }
-                return true
-            }
-        })
-
-        // Al cerrar el diálogo, restaura la lista completa siempre
-        dialog.setOnDismissListener {
-            observeContacts()
-        }
-
-        dialog.show()
     }
 
     override fun onDestroyView() {

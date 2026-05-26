@@ -63,7 +63,7 @@ class DetailFragment : Fragment() {
     private fun bindContact(contact: Contact) {
         binding.tvInitial.text = contact.name.first().uppercase()
         binding.tvName.text = contact.name
-        binding.tvCategory.text = contact.category
+        binding.tvEmailHeader.text = contact.email
         binding.tvEmail.text = contact.email
         binding.tvPhone.text = contact.phone
         binding.tvDetail.text = contact.detail
@@ -91,6 +91,9 @@ class DetailFragment : Fragment() {
             .show()
     }
 
+    // Para añadir otra opción al menú:
+    //   1) Añadir un <item> nuevo en res/menu/menu_detail.xml con su id y title
+    //   2) Añadir un caso en el 'when' de onMenuItemSelected con ese mismo id
     private fun setupMenu() {
         requireActivity().addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {

@@ -32,6 +32,4 @@ class ContactViewModel(application: Application) : AndroidViewModel(application)
     fun delete(contact: Contact) = viewModelScope.launch {
         repository.delete(contact)
     }
-
-    fun search(query: String): LiveData<List<Contact>> = repository.search(query)
 }

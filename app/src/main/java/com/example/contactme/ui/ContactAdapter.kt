@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.contactme.data.Contact
 import com.example.contactme.databinding.ItemContactBinding
 
-// ListAdapter actualiza solo las filas que cambian (eficiente)
+// RecyclerView: lista scrollable que reutiliza las filas al hacer scroll (no crea vistas nuevas cada vez)
+// Adapter: conecta la lista de datos con el RecyclerView, creando y llenando cada fila
+// ViewHolder: guarda las referencias a las vistas de UNA fila para no buscarlas en cada scroll
+// ListAdapter actualiza solo las filas que cambian (más eficiente que notifyDataSetChanged)
 class ContactAdapter(
     private val onClick: (Contact) -> Unit
 ) : ListAdapter<Contact, ContactAdapter.ViewHolder>(DiffCallback) {

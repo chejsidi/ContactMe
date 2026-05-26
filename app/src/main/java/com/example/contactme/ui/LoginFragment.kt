@@ -43,7 +43,6 @@
             }
         }
 
-        // Limpiar binding al destruir la vista
         override fun onDestroyView() {
             super.onDestroyView()
             _binding = null

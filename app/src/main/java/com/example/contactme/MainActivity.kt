@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Registrar MaterialToolbar como ActionBar
         setSupportActionBar(binding.toolbar)
 
         val navHostFragment = supportFragmentManager

@@ -3,7 +3,6 @@ package com.example.contactme.data
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-// Tabla "contacts" en la base de datos
 @Entity(tableName = "contacts")
 data class Contact(
     @PrimaryKey(autoGenerate = true)

@@ -22,7 +22,6 @@ class EditFragment : Fragment() {
     private val viewModel: ContactViewModel by viewModels()
     private val args: EditFragmentArgs by navArgs()
 
-    // Guardamos el contacto actual si estamos editando
     private var existingContact: Contact? = null
 
     override fun onCreateView(
@@ -51,7 +50,6 @@ class EditFragment : Fragment() {
             val contact = contacts.find { it.id == args.contactId }
             contact?.let {
                 existingContact = it
-                // Rellenamos los campos con los datos actuales
                 binding.etName.setText(it.name)
                 binding.etEmail.setText(it.email)
                 binding.etPhone.setText(it.phone)
@@ -66,7 +64,6 @@ class EditFragment : Fragment() {
         val phone = binding.etPhone.text.toString().trim()
         val detail = binding.etDetail.text.toString().trim()
 
-        // Validar campos obligatorios
         if (name.isEmpty() || email.isEmpty()) {
             Toast.makeText(requireContext(), "Nombre y email son obligatorios", Toast.LENGTH_SHORT).show()
             return

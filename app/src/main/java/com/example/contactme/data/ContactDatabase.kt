@@ -5,7 +5,6 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-// Clase principal de Room, versión 1
 @Database(entities = [Contact::class], version = 1)
 abstract class ContactDatabase : RoomDatabase() {
 

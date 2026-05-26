@@ -9,8 +9,6 @@ class ContactRepository(private val dao: ContactDao) {
 
     val allContacts: LiveData<List<Contact>> = dao.getAll()
 
-    fun search(query: String): LiveData<List<Contact>> = dao.search(query)
-
     suspend fun insert(contact: Contact) = dao.insert(contact)
 
     suspend fun update(contact: Contact) = dao.update(contact)
